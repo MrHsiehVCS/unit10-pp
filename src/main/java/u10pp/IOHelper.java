@@ -1,3 +1,4 @@
+package u10pp;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -86,11 +87,11 @@ public class IOHelper {
             List<String> puzzleData = new ArrayList<String>();
             while (fileScanner.hasNextLine()) {
                 String data = fileScanner.nextLine();
-                if(data.equals("NEW LINE")) {
+                if(data.trim().equals("NEW LINE")) {
                     fileData.add(puzzleData);
                     puzzleData = new ArrayList<String>();
                 } else
-                    puzzleData.add(data);
+                    puzzleData.add(data.trim());
             }
             fileData.add(puzzleData);
             fileScanner.close();
@@ -155,7 +156,10 @@ public class IOHelper {
             }
             line += "|";
             line = line.trim();
-            retStr += line + "\n";
+            retStr += line;
+            if (r != puzzle.length - 1) {
+                retStr += "\n";
+            }
         }
         retStr += dashedLine ;            
         return retStr.trim();
@@ -193,7 +197,10 @@ public class IOHelper {
             if(!gapLine.isEmpty()) {
                 output += gapLine + "\n";
             }
-            output += numbersLine + "\n";
+            output += numbersLine;
+            if(r != puzzle.length-1) {
+                output += "\n";
+            }
         }
         return output;
     }

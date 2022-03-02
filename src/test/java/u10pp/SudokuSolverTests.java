@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import java.util.List;
 
 public class SudokuSolverTests {
-    private List<int[][]> testPuzzles = IOHelper.getPuzzlesFromFile("src\\test\\java\\sudokuPuzzlesTests.txt");
+    private List<int[][]> testPuzzles = IOHelper.getPuzzlesFromFile("src\\test\\java\\u10pp\\sudokuPuzzlesTests.txt");
     private int[][] 
     puzzle1Sol = {{1}},
     puzzle2Sol = {{1}}, 

@@ -31,7 +31,7 @@ public class Main
         // System.out.println(IOHelper.formatSudokuPuzzle(SudokuSolver.solve(sudokuPuzzle)));
 
         // // using all the sudoku examples in sudokuPuzzles.txt
-        // List<int[][]> puzzles = IOHelper.getPuzzlesFromFile("src\\main\\java\\sudokuPuzzles.txt");
+        // List<int[][]> puzzles = IOHelper.getPuzzlesFromFile("src\\main\\java\\u10pp\\sudokuPuzzles.txt");
         // for(int[][] puzzle : puzzles) {
         //     System.out.println(IOHelper.formatSudokuPuzzle(SudokuSolver.solve(puzzle)));
         // }
@@ -46,10 +46,11 @@ public class Main
         // System.out.println("\nSimple Numbrix:");
         // System.out.println(IOHelper.formatNumbrixPuzzle(NumbrixSolver.solve(numbrixPuzzle)));
 
-        // // using all the numbrix examples in numbrixPuzzles.txt
-        // List<int[][]> puzzles = IOHelper.getPuzzlesFromFile("src\\main\\java\\numbrixPuzzles.txt");
-        // for(int[][] puzzle : puzzles) {
-        //     System.out.println(IOHelper.formatNumbrixPuzzle(NumbrixSolver.solve(puzzle)));
-        // }
+        // using all the numbrix examples in numbrixPuzzles.txt
+        List<int[][]> puzzles = IOHelper.getPuzzlesFromFile("src\\main\\java\\u10pp\\numbrixPuzzlesFromREADME.txt");
+        for(int[][] puzzle : puzzles) {
+            System.out.println(IOHelper.formatNumbrixPuzzle(NumbrixSolver.solve(puzzle)));
+            System.out.println();
+        }
     }
 }
