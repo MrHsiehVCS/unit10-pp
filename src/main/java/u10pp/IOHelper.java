@@ -19,10 +19,23 @@ public class IOHelper {
         return IOHelper.validYesNoInputs; 
     }
 
+    /**
+     * Repeatedly asks the user the `prompt` until they give a yes or no answer.
+     * @return either `"Y"` or `"N"`
+     */
     public static String getValidYesNoInput(Scanner scanner, String prompt) {
         return getValidInput(scanner, prompt, getValidYesNoInputs());
     }
 
+    /**
+     * Repeatedly asks the user the `prompt` until they input a string that is found in `validInputs`.
+     * @param scanner
+     * @param prompt 
+     * @param validInputs - When creating `validInputs` make each inner list different possible iterations of the same response. 
+     *      e.g. When given [["Y", "Yes"]], both of these inputs are accepted, and both would return `"Y"`. 
+     *      Case insensitive.
+     * @return the first element of the List that the matching valid input was found in. 
+     */
     public static String getValidInput(Scanner scanner, String prompt, List<List<String>> validInputs) {
         while(true) {
             System.out.print(prompt);
@@ -43,7 +56,7 @@ public class IOHelper {
     }
     
     /**
-     * 
+     * Repeatedly asks the user the `prompt` until they input a number between `min` and `max` (inclusive).
      * @param scanner
      * @param prompt
      * @param min - inclusive
@@ -72,6 +85,12 @@ public class IOHelper {
         }
     }
 
+    /**
+     * Parses file and returns int[][] representations of the puzzles in the file.
+     * Works for both Sudoku and Numbrix
+     * @param fileName
+     * @return
+     */
     public static List<int[][]> getPuzzlesFromFile(String fileName) {
         return getFormattedFileData(fileName).stream()
             .map(IOHelper::convertPuzzle)
@@ -115,6 +134,12 @@ public class IOHelper {
         return retArr;
     }
 
+    /**
+     * Returns a formatted grid from an int[][] puzzle.
+     * General purpose.
+     * @param puzzle
+     * @return
+     */
     public static String formatPuzzle(int[][] puzzle) {
         String retStr = " ";
         int largestNum = getLargestNum(puzzle);
@@ -133,6 +158,11 @@ public class IOHelper {
         return retStr.trim();
     }
 
+    /**
+     * returns a formatted grid of a SudokuPuzzle.
+     * @param puzzle
+     * @return
+     */
     public static String formatSudokuPuzzle(int[][] puzzle) {
         String retStr = " ";
         int largestNum = getLargestNum(puzzle);
@@ -165,6 +195,12 @@ public class IOHelper {
         return retStr.trim();
     }
 
+    /**
+     * returns a formatted grid of a numbrix puzzle.
+     * Includes lines to connect adjacent answers. 
+     * @param puzzle
+     * @return
+     */
     public static String formatNumbrixPuzzle(int[][] puzzle) {
         int largestNum = getLargestNum(puzzle);
         int digitsPer = Integer.toString(largestNum).length();
@@ -177,7 +213,9 @@ public class IOHelper {
             for(int c = 0; c < puzzle[r].length; c++) {
                 // gap between rows
                 if(r != 0) {
-                    if(Math.abs(puzzle[r][c] - puzzle[r-1][c]) == 1) {
+                    if(Math.abs(puzzle[r][c] - puzzle[r-1][c]) == 1
+                        && puzzle[r][c] > 0
+                        && puzzle[r-1][c] > 0) {
                         // create line
                         gapLine +=  " ".repeat(digitsPer) + "|";
                     } else {
@@ -188,7 +226,10 @@ public class IOHelper {
                 // numbers
                 int currNumLength = Integer.toString(puzzle[r][c]).length();
                 String filler = " ";
-                if(c != 0 && Math.abs(puzzle[r][c] - puzzle[r][c-1]) == 1) {
+                if(c != 0 
+                    && Math.abs(puzzle[r][c] - puzzle[r][c-1]) == 1
+                    && puzzle[r][c] > 0
+                    && puzzle[r][c-1] > 0) {
                     filler = "-";
                 }
                 numbersLine += filler.repeat(digitsPer - currNumLength + 1);
