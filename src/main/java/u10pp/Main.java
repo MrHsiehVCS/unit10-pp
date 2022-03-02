@@ -7,9 +7,10 @@ public class Main
         System.out.println("Hi! This is the unit 10 programming project. Have fun! :)");
 
         // Use this space to test your code. 
+        // Some example test cases are given below
 
         // System.out.println(String.format("The %sth Fibonacci Number is: %s", 
-        // 5, RecursiveMath.getFibonacciNumber(5)));
+        //     5, RecursiveMath.getFibonacciNumber(5)));
 
         // System.out.println(String.format("%s factorial is: %s", 
         //     5, RecursiveMath.getFactorial(5)));
@@ -46,11 +47,11 @@ public class Main
         // System.out.println("\nSimple Numbrix:");
         // System.out.println(IOHelper.formatNumbrixPuzzle(NumbrixSolver.solve(numbrixPuzzle)));
 
-        // using all the numbrix examples in numbrixPuzzles.txt
-        List<int[][]> puzzles = IOHelper.getPuzzlesFromFile("src\\main\\java\\u10pp\\numbrixPuzzlesFromREADME.txt");
-        for(int[][] puzzle : puzzles) {
-            System.out.println(IOHelper.formatNumbrixPuzzle(NumbrixSolver.solve(puzzle)));
-            System.out.println();
-        }
+        // // using all the numbrix examples in numbrixPuzzles.txt
+        // List<int[][]> puzzles = IOHelper.getPuzzlesFromFile("src\\main\\java\\u10pp\\numbrixPuzzlesFromREADME.txt");
+        // for(int[][] puzzle : puzzles) {
+        //     System.out.println(IOHelper.formatNumbrixPuzzle(NumbrixSolver.solve(puzzle)));
+        //     System.out.println();
+        // }
     }
 }
