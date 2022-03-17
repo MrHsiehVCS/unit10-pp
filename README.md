@@ -32,7 +32,7 @@ In a public class called `RecursiveMath`, implement the following functions:
   - *Precondition*: `n` is non-negative
   - Google the documentation for BigInteger. You will only really need `BigInteger.multiply()` and `BigInteger.valueOf()`.
     - It is not necessary to know the `BigInteger` documentation for the AP Test, and it will not be tested in this class. The point of using `BigInteger` is more to develop your ability to find, understand, and utilize preexisting tools. 
-- `public static long getFibonacciNumber(int n)` 
+- `public static int getFibonacciNumber(int n)` 
   - returns the `n`th number in the fibonacci series
     - Each fibonacci number is the sum of the two fibonacci numbers preceding it.
     - The first and second fibonacci number are both 1.  
