@@ -62,7 +62,7 @@ Implement the following function in the `RecursivePalindromeChecker` class:
 
 ### What is Sudoku?
 
-A Sudoku puzzle is a puzzle where you are given an `n x n` board and you have to fill it is so that each space contains a number `1 -  n`. Every row, column, and block must not have any repeating digits. A block is a square group of spaces that is `sqrt(n) x sqrt(x)`, without overlap. There are `n` blocks, and they are arranged in a non-overlapping grid.
+A Sudoku puzzle is a puzzle where you are given an `n x n` board and you have to fill it is so that each space contains a number `1 -  n`. Every row, column, and block must not have any repeating digits. A block is a square group of spaces that is `sqrt(n)` by `sqrt(n)`, without overlap. There are `n` blocks, and they are arranged in a non-overlapping grid.
 
 Examples can be found at <https://www.websudoku.com/>
 
