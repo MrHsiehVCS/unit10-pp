@@ -101,7 +101,7 @@ public class IOHelper {
         List<List<String>> fileData = new ArrayList<List<String>>();
 
         try {
-            File file = new File(fileName);
+            File file = new File(normalizeFilepath(fileName));
             Scanner fileScanner = new Scanner(file);
             List<String> puzzleData = new ArrayList<String>();
             while (fileScanner.hasNextLine()) {
@@ -119,6 +119,12 @@ public class IOHelper {
         }
 
         return fileData;
+    }
+
+    private static String normalizeFilepath(String filename) {
+        filename = filename.replace("\\", File.separator);
+        filename = filename.replace("/", File.separator);
+        return filename;
     }
 
     private static int[][] convertPuzzle(List<String> puzzle) {
