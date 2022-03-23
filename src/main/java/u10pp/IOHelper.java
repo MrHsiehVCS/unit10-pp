@@ -197,7 +197,7 @@ public class IOHelper {
                 retStr += "\n";
             }
         }
-        retStr += dashedLine ;            
+        retStr += "\n" + dashedLine ;            
         return retStr.trim();
     }
 
